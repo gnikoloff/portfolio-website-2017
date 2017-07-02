@@ -1,3 +1,7 @@
+uniform float time;
+
 void main () {
-  gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+  vec3 newPos = position;
+  newPos.x += time;
+  gl_Position = projectionMatrix * modelViewMatrix * vec4( newPos, 1.0 );
 }

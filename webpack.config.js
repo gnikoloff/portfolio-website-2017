@@ -1,8 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const PrepackWebpackPlugin = require('prepack-webpack-plugin').default
-
 const srcPath = path.join(__dirname, 'app');
 const buildPath = path.join(__dirname, 'public/js');
 
@@ -15,34 +13,32 @@ const config = {
   },
   module: {
     loaders: [
-        {
-            test: /\.js$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader',
-            query: {
-                presets: ['es2015']
-            }
-        },
-        {
-            test: /\.scss$/,
-            loaders: ['style-loader', 'css-loader', 'sass-loader']
-        },
-        {
-            test: /\.glsl$/,
-            loader: 'webpack-glsl-loader'
-        },
-        {
-            test: /\.(jpe?g|png|gif|svg)$/i,
-            loaders: [
-                'file?hash=sha512&digest=hex&name=[hash].[ext]',
-                'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
-            ]
-        }
+      {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader',
+          query: {
+              presets: ['es2015']
+          }
+      },
+      {
+          test: /\.scss$/,
+          loaders: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+          test: /\.glsl$/,
+          loader: 'webpack-glsl-loader'
+      },
+      {
+          test: /\.(jpe?g|png|gif|svg)$/i,
+          loaders: [
+              'file?hash=sha512&digest=hex&name=[hash].[ext]',
+              'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+          ]
+      }
     ]
   },
-  plugins: [
-    new PrepackWebpackPlugin({})
-  ],
+  plugins: [],
   stats: {
       colors: true
   }

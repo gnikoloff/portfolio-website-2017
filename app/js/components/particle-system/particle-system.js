@@ -42,7 +42,7 @@ export default class ParticleSystem {
     this.meshes.forEach(mesh => parent.add(mesh))
     return this
   }
-  updateFrame () {
-
+  updateFrame (now) {
+    this.uniforms.time.value = now
   }
 }

@@ -4,8 +4,10 @@ import AppScene from './scene'
 
 export const eventBus = MiniBus.create()
 
-init()
+document.addEventListener('DOMContentLoaded', init)
+
 function init () {
+
   window.addEventListener('resize', onresize)
   document.addEventListener('mousemove', onmousemove)
   document.addEventListener('mousedown', onmousedown)
